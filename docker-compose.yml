@@ -1,0 +1,11 @@
+services:
+  # Serviço para a aplicação FastApi
+  app:
+    build: . # Constói a imagem a partir do Dockerfile na raiz do projeto
+    container_name: api_app # Nome do container
+    ports:
+      - "8000:8000" # Mapeia a porta 8000 do container para a porta 8000 do host
+    volumes:
+      - .:/app # Monta o diretório atual (onde está o docker-compose.yml) no diretório /app do container.
+              # Isso permite que as alterações no código sejam refletidas imediatamente no container.
+              # São refletidas automaticamente no container devido ao --reload do uvicorn.
